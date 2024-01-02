@@ -77,10 +77,10 @@ export const fetchData = (type)=> async (dispatch)=>{
     dispatch(loading('start'));
  
     if(type === 'ALL'){
-      const responseChampions = await axios.get(`http://ddragon.leagueoflegends.com/cdn/13.10.1/data/it_IT/champion.json`);
+      const responseChampions = await axios.get(`https://ddragon.leagueoflegends.com/cdn/13.10.1/data/it_IT/champion.json`);
       dispatch(saveDataChampions(responseChampions.data.data));
     }else{
-      const responseChampions = await axios.get(`http://ddragon.leagueoflegends.com/cdn/13.10.1/data/it_IT/champion.json`);
+      const responseChampions = await axios.get(`https://ddragon.leagueoflegends.com/cdn/13.10.1/data/it_IT/champion.json`);
       const arrayDiOggetti = Object.values(responseChampions.data.data);
    
       
@@ -106,7 +106,7 @@ export const fetchData = (type)=> async (dispatch)=>{
 export const fetchDataSingleChampion = (nomeChampion)=> async (dispatch)=>{
   try {
     dispatch(loading('start'));
-    const responseChampion = await axios.get(`http://ddragon.leagueoflegends.com/cdn/13.10.1/data/it_IT/champion/${nomeChampion}.json`);
+    const responseChampion = await axios.get(`https://ddragon.leagueoflegends.com/cdn/13.10.1/data/it_IT/champion/${nomeChampion}.json`);
     dispatch(saveDataSingleChampion([responseChampion.data.data,responseChampion.data.data[nomeChampion].spells]));
     
     dispatch(loading('stop'));
